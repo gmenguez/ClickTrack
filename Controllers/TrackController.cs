@@ -19,11 +19,11 @@
         }
 
         [HttpGet("{**url}")]
-        [ProducesResponseType(StatusCodes.Status301MovedPermanently)]
+        [ProducesResponseType(StatusCodes.Status302Found)]
         public IActionResult Get(string url)
         {
             m_clickRepository.Add(url);
-            return RedirectPermanent(url);
+            return Redirect(url);
         }
     }
 }
