@@ -44,6 +44,10 @@ namespace ClickTrack
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClickTrack v1"));
             }
 
+            app.UseCors(builder =>
+                builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod()
+            );
+
             app.UseRouting();
 
             app.UseAuthorization();
